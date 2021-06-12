@@ -264,7 +264,7 @@ function OneBlockChangeover() {
     }
 }
 function TwoBlockChangeover() {
-    if(parseInt(TwoTimeEl) > parseInt(moment().format('h')) && moment().format('a') == 'pm'|| moment().format('a') == 'am') {
+    if(parseInt(TwoTimeEl) > parseInt(moment().format('h')) && moment().format('a') == 'pm'|| moment().format('a') == 'am' || moment().format('h') == '12') {
         TwoBlock.removeClass('past');
         TwoBlock.addClass('future');
     }
@@ -280,7 +280,7 @@ function TwoBlockChangeover() {
     }
 }
 function ThreeBlockChangeover() {
-    if(parseInt(ThreeTimeEl) > parseInt(moment().format('h')) && moment().format('a') == 'pm'|| moment().format('a') == 'am') {
+    if(parseInt(ThreeTimeEl) > parseInt(moment().format('h')) && moment().format('a') == 'pm'|| moment().format('a') == 'am' ||  moment().format('h') == '12') {
         ThreeBlock.removeClass('past');
         ThreeBlock.addClass('future');
     }
@@ -296,7 +296,7 @@ function ThreeBlockChangeover() {
     }
 }
 function FourBlockChangeover() {
-    if(parseInt(FourTimeEl) > parseInt(moment().format('h')) && moment().format('a') == 'pm'|| moment().format('a') == 'am') {
+    if(parseInt(FourTimeEl) > parseInt(moment().format('h')) && moment().format('a') == 'pm'|| moment().format('a') == 'am' || moment().format('h') == '12') {
         FourBlock.addClass('past');
         FourBlock.addClass('future');
     }
@@ -312,7 +312,7 @@ function FourBlockChangeover() {
     }
 }
 function FiveBlockChangeover() {
-    if(parseInt(FiveTimeEl) > parseInt(moment().format('h')) && moment().format('a') == 'pm'|| moment().format('a') == 'am') {
+    if(parseInt(FiveTimeEl) > parseInt(moment().format('h')) && moment().format('a') == 'pm'|| moment().format('a') == 'am' || moment().format('h') == '12') {
         FiveBlock.removeClass('past');
         FiveBlock.addClass('future');
     }
