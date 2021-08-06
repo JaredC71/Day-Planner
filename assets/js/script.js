@@ -76,15 +76,12 @@ var btndata = [NineBlock, TenBlock, ElevenBlock, TwelveBlock, OneBlock, TwoBlock
 
 //This function is assigned to every to edit button. It targets the textarea element associated with the edit button that was clicked
 //This function toggles the attribute of disabled and pushes the textarea value into the correct local storage key associated with that time
-function getTextAreaIconBtn(event) {
+
+
+function submitItem(event) {
     var target = $(event.target);
     var targetTextArea = target.parent().parent().siblings('.form-control');
-    if (targetTextArea.attr('disabled')) {
-        targetTextArea.removeAttr('disabled');
-      
-    } else {
-        targetTextArea.attr('disabled', 'disabled');
-    }
+    targetTextArea.attr('disabled', 'disabled');
     if (targetTextArea.attr('id') == '9am-block') {
  
         NineVal.pop();
@@ -137,7 +134,66 @@ function getTextAreaIconBtn(event) {
 
     return;
 
+
 }
+function getTextAreaIconBtn(event) {
+    var target = $(event.target);
+    target.removeAttr('disabled');
+    console.log(10);
+    // if (targetTextArea.attr('id') == '9am-block') {
+ 
+    //     NineVal.pop();
+    //     NineVal.push(targetTextArea.val());
+
+    //     localStorage.setItem('9am-item', JSON.stringify(NineVal));
+
+    // } else if (targetTextArea.attr('id') == '10am-block') {
+        
+    //     TenVal.pop();
+    //     TenVal.push(targetTextArea.val());
+    //     localStorage.setItem('10am-item', JSON.stringify(TenVal));
+
+    // } else if (targetTextArea.attr('id') == '11am-block') {
+    //     ElevenVal.pop();
+    //     ElevenVal.push(targetTextArea.val());
+    //     localStorage.setItem('11am-item', JSON.stringify(ElevenVal));
+
+    // } else if (targetTextArea.attr('id') == '12pm-block') {
+    //     TwelveVal.pop();
+    //     TwelveVal.push(targetTextArea.val());
+    //     localStorage.setItem('12pm-item', JSON.stringify(TwelveVal));
+
+    // } else if (targetTextArea.attr('id') == '1pm-block') {
+    //     OneVal.pop();
+    //     OneVal.push(targetTextArea.val());
+    //     localStorage.setItem('1pm-item', JSON.stringify(OneVal));
+
+    // } else if (targetTextArea.attr('id') == '2pm-block') {
+    //     TwoVal.pop();
+    //     TwoVal.push(targetTextArea.val());
+    //     localStorage.setItem('2pm-item', JSON.stringify(TwoVal));
+
+    // } else if (targetTextArea.attr('id') == '3pm-block') {
+    //     ThreeVal.pop();
+    //     ThreeVal.push(targetTextArea.val());
+    //     localStorage.setItem('3pm-item', JSON.stringify(ThreeVal));
+
+    // } else if (targetTextArea.attr('id') == '4pm-block') {
+    //     FourVal.pop();
+    //     FourVal.push(targetTextArea.val());
+    //     localStorage.setItem('4pm-item', JSON.stringify(FourVal));
+
+    // } else {
+    //     FiveVal.pop();
+    //     FiveVal.push(targetTextArea.val());
+    //     localStorage.setItem('5pm-item', JSON.stringify(FiveVal));
+
+    // }
+
+
+
+}
+
 //this function sets the value of every textarea to the content stored in the associated local storage key
 function displayStorage() {
     $('#9am-block').val(JSON.parse(localStorage.getItem('9am-item')));
@@ -152,7 +208,8 @@ function displayStorage() {
 
 }
 //when the icon is clicked, call the function getTextAreaIconBtn
-$('.fas').on('click', getTextAreaIconBtn);
+$('.fas').on('click', submitItem);
+$('.input-group').on('click', getTextAreaIconBtn);
 //display content in local storage on refresh
 displayStorage();
 
